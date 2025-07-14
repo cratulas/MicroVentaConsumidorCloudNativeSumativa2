@@ -1,6 +1,7 @@
 // DetalleVenta.java
 package com.example.microventaconsumidor.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class DetalleVenta {
 
     @ManyToOne
     @JoinColumn(name = "venta_id", nullable = false)
+    @JsonBackReference
     private Venta venta;
 
     @Column(nullable = false)
@@ -21,5 +23,4 @@ public class DetalleVenta {
 
     @Column(nullable = false)
     private Integer cantidad;
-
 }
